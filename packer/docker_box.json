@@ -1,7 +1,7 @@
 {
   "variables": {
     "source_box_name": "generic/centos7",
-    "dest_box_name": "ybagoulla/docker-centos7"
+    "dest_box_name": "bagoulla/docker-centos7"
   },
   "builders": [
     {

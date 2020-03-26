@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.define "k8s" do |k8s|
-    k8s.vm.box = "ybagoulla/k8s-centos7"
-    k8s.vm.box_url = "ybagoulla/k8s-centos7"
+    k8s.vm.box = "bagoulla/k8s-centos7"
+    k8s.vm.box_url = "bagoulla/k8s-centos7"
     k8s.vm.hostname = "k8s"
     k8s.vm.network "private_network", ip: "10.0.0.11"
     k8s.vm.provider "virtualbox" do |v|
@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "mcastsrc" do |mcastsrc|
-    mcastsrc.vm.box = "ybagoulla/docker-centos7"
-    mcastsrc.vm.box_url = "ybagoulla/docker-centos7"
+    mcastsrc.vm.box = "bagoulla/docker-centos7"
+    mcastsrc.vm.box_url = "bagoulla/docker-centos7"
     mcastsrc.vm.hostname = "mcastsrc"
     mcastsrc.vm.network "private_network", ip: "10.0.0.12"
   end
