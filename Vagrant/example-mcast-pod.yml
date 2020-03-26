@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: multicast-example 
+  annotations: 
+    k8s.v1.cni.cncf.io/networks: eth1-multicast@eth1 
+spec: 
+  containers: 
+  - name: example-multicast-pod 
+    command: ["iperf", "-s", "-u", "-B", "224.0.67.67%eth1", "-i", "1"] 
+    image: bagoulla/iperf:2.0

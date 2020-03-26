@@ -1,0 +1,28 @@
+{
+  "variables": {
+    "source_box_name": "ybagoulla/docker-centos7",
+    "dest_box_name": "ybagoulla/k8s-centos7"
+  },
+  "builders": [
+    {
+      "box_name": "{{user `source_box_name`}}",
+      "communicator": "ssh",
+      "ssh_username": "vagrant",
+      "ssh_private_key_file": "~/.vagrant.d/insecure_private_key",
+      "source_path": "{{user `source_box_name`}}",
+      "provider": "virtualbox",
+      "skip_add": true,
+      "type": "vagrant",
+      "output_dir": "build/{{user `dest_box_name`}}"
+    }
+  ],
+  "provisioners": [
+	  {
+		  "type": "shell",
+		  "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
+		  "scripts": [
+			  "scripts/k8s_box.sh"
+		  ]
+	  }
+  ]
+}
